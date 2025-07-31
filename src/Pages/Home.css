@@ -1,0 +1,992 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.poppin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  letter-spacing: 2px;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 2px;
+}
+
+.poppinsx {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+   letter-spacing: 2px;
+}
+
+@keyframes scroll-half {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-by-width {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% + 220px));
+  }
+}
+
+.animate-scroll-half {
+  animation: scroll-half 15s linear infinite;
+}
+
+.animate-scroll-by-width {
+  animation: scroll-by-width 15s linear infinite;
+}
+
+
+/* Services */
+/* General */
+.services-section {
+  padding: 60px 20px;
+  text-align: start;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title {
+  font-size: 40px;
+  text-align: left !important;
+  color: rgb(150, 150, 150);
+  text-decoration: underline;
+
+}
+
+.section-subtext {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 450px;
+}
+
+/* Grid layout */
+.services-grid {
+  display: grid;
+  padding: 0px 250px 0px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  justify-items: center;
+  margin-bottom: 60px;
+}
+
+.service-card {
+  /* your existing styles */
+}
+
+
+
+.arrow {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+/* Add this to your index.css or global.css */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  padding: 0px 0px 0px;
+
+  }
+  .section-title {
+  font-size: 28px;
+  text-align: left !important;
+  color: rgb(150, 150, 150);
+  text-decoration: underline;
+
+}
+}
+
+
+
+/* Service Card */
+.service-card {
+  border: 3px solid #000000;
+  background-color: #ffffff;
+  width: 300px;
+  height: 250px;
+  padding: 30px; 
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  box-shadow: 0 0 0 2px #fce6ce;
+  border: 3px solid #f6ebde;
+  background-color: #f6ebde;
+}
+
+/* Title and arrow container */
+.service-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  font-size: 13px;
+  background: black;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.08s ease-out;
+  white-space: nowrap;
+  mix-blend-mode: difference;
+}
+
+
+.service-text {
+  font-weight: 400;
+  color: #1c1c1c;
+  text-align: left;
+  font-size: 15px !important;
+}
+
+/* Hover description content */
+.service-hover-content {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  text-align: center;
+  width: 90%;
+}
+
+.service-card:hover .service-hover-content {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.service-description {
+  font-size: 13px;
+  color: #555;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+/* Service number top right */
+.service-number {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  opacity: 0.6;
+}
+
+/* Default arrow style */
+/* Optional: if not using Tailwind */
+.arrow-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.arrow,
+.black-square {
+  position: absolute;
+  top: -80%;
+  left: -50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.arrow {
+  color: #4d2e24;
+  font-size: 30px;
+}
+
+.black-square {
+  background-color: black;
+  width: 150%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.75);
+}
+
+.service-card:hover .arrow {
+  opacity: 0;
+  transform: scale(0.75);
+}
+
+.service-card:hover .black-square {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* Clients */
+.clients-title {
+  margin-top: 20px;
+}
+
+.clients-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.client-logo {
+  background: #fff;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 24px;
+  color: #aaaaaa;
+  box-shadow: 0 2px 8px rgba(76, 76, 76, 0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.client-logo:hover {
+  transform: translateY(-3px);
+}
+
+
+/* OUR WORKS SECTION */
+.our-works-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  gap: 40px;
+  height: 100vh;
+  align-items: start;
+  color: white;
+  background-color: #34160d;
+  overflow: hidden;
+  padding: 40px 20px;
+  min-height: 450px;
+  box-sizing: border-box;
+}
+
+/* LEFT TEXT */
+.our-works-text {
+  flex: 1;
+  max-width: 700px;
+  min-width: auto;
+}
+
+.our-works-text h3 {
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  text-align: left;
+  text-decoration: underline;
+}
+
+.our-works-text p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: white;
+  text-align: left;
+}
+
+/* GRID CONTAINER */
+.our-works-grid {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  gap: 40px;
+  justify-content: center;
+}
+
+/* IMAGE CARD */
+.work-card {
+  height: 350px;
+  overflow: hidden; /* Hide content initially */
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Image inside card */
+.work-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* CARD CONTENT */
+.card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  pointer-events: none;
+}
+
+/* TITLE & DESCRIPTION */
+.work-title,
+.work-description {
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  z-index: 3;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* HOVER EFFECT — make content overflow outside */
+.work-card:hover {
+  overflow: visible;
+  z-index: 999;
+}
+
+.work-card:hover .work-title {
+  font-size: 38px;
+  transform: scale(1.3) translateY(-20px);
+}
+
+.work-card:hover .work-description {
+  font-size: 20px;
+  transform: scale(1.2) translateY(10px);
+}
+
+/* STAGGERED EFFECT */
+.work-card:nth-child(1),
+.work-card:nth-child(3) {
+  transform: translateY(50px);
+}
+
+.work-card:nth-child(2),
+.work-card:nth-child(4) {
+  transform: translateY(-60px);
+}
+
+/* RESPONSIVE TABLETS */
+/* Base styles (desktop/tablet can go here) */
+/* ...existing styles... */
+
+/* Mobile styles */
+@media (max-width: 640px) {
+  .our-works-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+    gap: 30px;
+    height: auto;
+  }
+
+  .our-works-text {
+    max-width: 100%;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .our-works-text h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .our-works-text p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .our-works-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .work-card {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .work-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .work-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .work-description {
+    font-size: 20px;
+    line-height: 1.6;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  /* Remove hover effects on mobile */
+  .work-card:hover .work-title,
+  .work-card:hover .work-description {
+    transform: none;
+    font-size: inherit;
+  }
+}
+
+
+
+/* ✅ TABLET FIXES */
+@media (max-width: 1024px) {
+  .our-works-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    gap: 30px;
+    height: auto;
+  }
+
+  .our-works-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .work-card {
+    height: 270px;
+    transform: none !important;
+  }
+}
+
+@media (hover: none) {
+  .work-card:hover .work-title,
+  .work-card:hover .work-description {
+    transform: none;
+    font-size: inherit;
+  }
+}
+
+
+
+
+
+
+
+/*   FOOTER    */
+
+       .footer {
+          background-color: #2d1810;
+          color: #454545;
+          padding: 60px 0;
+          font-family: 'Arial', sans-serif;
+          position: relative;
+          min-height: 500px;
+        }
+
+        .footer-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 40px;
+          position: relative;
+        }
+
+        .footer-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+
+        .footer-brand h1 {
+          font-size: 120px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          gap: 40px;
+          margin: 0;
+          letter-spacing: 15px;
+        }
+
+
+.footer-brand .brand {
+
+  background: linear-gradient(135deg, #949494, #6f6f6f, #6e6e6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  
+}
+
+.footer-brand .brand-underline {
+  height: 4px;
+  background-color: rgb(107, 107, 107);
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+
+
+
+
+        .footer-links {
+          display: flex;
+          color: #454545;
+          align-items: left;
+          margin-bottom: 80px;
+          justify-content: space-between;
+          border-top: 1px solid #444;
+    
+        }
+
+        .footer-links ul {
+          list-style: none;
+          color: #454545;
+          padding: 0;
+          margin: 0;
+        }
+
+   
+     
+
+      
+
+        .footer-links .section-title {
+          color:#454545;;
+          font-weight:200;
+        }
+
+        .footer-middle {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 60px;
+          gap: 40px;
+        }
+
+   
+
+        .footer-help p {
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 20px;
+          color: #454545;
+        }
+
+        .footer-form {
+          display: flex;
+          gap: 15px;
+        }
+
+        .footer-form input {
+          padding: 12px 16px;
+          border: 1px solid #666;
+          background: transparent;
+          color: #454545;
+          font-size: 14px;
+          flex: 1;
+          min-width: 200px;
+          border-radius: 4px;
+        }
+
+        .footer-form input::placeholder {
+          color: #454545;
+        }
+
+        .footer-form button {
+          padding: 12px 20px;
+          background: transparent;
+          border: 1px solid #666;
+          color: #454545;
+          cursor: pointer;
+          font-size: 14px;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+          white-space: nowrap;
+        }
+
+     
+
+        .footer-contact {
+          text-align: left;
+          min-width: 200px;
+        }
+
+    
+
+        .footer-contact .contact-phone {
+          font-size: 16px;
+          margin-bottom: 4px;
+        }
+
+  
+
+   
+        .footer-address {
+          text-align: left;
+          min-width: 200px;
+        }
+
+    
+
+        .footer-bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 30px;
+        }
+
+        .social {
+          font-size: 14px;
+          font-weight: 400;
+          margin-bottom: 8px;
+          color: #454545;
+        }
+
+        .social .social-links {
+          font-size: 14px;
+          color: #454545;
+          margin: 0;
+        }
+
+        .social p {
+          margin: 0 0 4px 0;
+        }
+
+        .copy {
+          color: #454545;
+
+        }
+
+        .copy p {
+          margin: 0 0 4px 0;
+          font-size: 1px;
+          color: #454545;
+        }
+
+        .copy p:first-child {
+          font-size: 1px;
+          color: #454545;
+        }
+
+        .scroll-top {
+          position: absolute;
+          bottom: 20px;
+          left: 40px;
+          width: 120px;
+          height: 120px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scroll-top:hover {
+          background: rgba(255, 255, 255, 0.1);
+          transform: translateY(-2px);
+        }
+
+        .scroll-top span {
+          font-size: 40px;
+          color: #454545;
+          font-weight: bold;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+          .footer {
+            padding: 40px 0;
+          }
+
+          .footer-container {
+            padding: 0 20px;
+          }
+
+          .footer-top {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 50px;
+            gap: 30px;
+          }
+
+          .footer-brand h1 {
+            font-size: 32px;
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          .footer-brand .year {
+            font-size: 68px;
+          }
+
+          .footer-links {
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+          }
+
+          .footer-links ul {
+            text-align: center;
+          }
+
+          .footer-middle {
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 40px;
+          }
+
+          .footer-help {
+            max-width: 100%;
+          }
+
+          .footer-form {
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+          }
+
+          .footer-form input,
+          .footer-form button {
+            width: 100%;
+            min-width: auto;
+          }
+
+          .footer-contact,
+          .footer-address {
+            text-align: center;
+            min-width: auto;
+          }
+
+          .footer-bottom {
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            text-align: center;
+          }
+
+          .copy {
+            text-align: center;
+          }
+
+          .scroll-top {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            bottom: 10px;
+          }
+
+          .scroll-top span {
+            font-size: 28px;
+          }
+          .scroller{
+            display: none;
+          }
+        }
+
+        /* Tablet Responsive */
+        @media (max-width: 1024px) and (min-width: 769px) {
+          .footer-container {
+            padding: 0 30px;
+          }
+
+          .footer-brand h1 {
+            font-size: 42px;
+          }
+
+          .footer-brand .year {
+            font-size: 64px;
+          }
+
+          .footer-links {
+            gap: 50px;
+          }
+
+          .footer-middle {
+            gap: 30px;
+          }
+
+          .footer-help {
+            max-width: 350px;
+          }
+
+          .scroll-top {
+            width: 100px;
+            height: 100px;
+          }
+
+          .scroll-top span {
+            font-size: 36px;
+          }
+        }
+
+
+/* Careers  */
+/* Base styles */
+.careers-container {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.careers-title {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease-in;
+}
+
+/* Jobs Grid */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card */
+.job-card {
+  background-color: #fff;
+  color: #000;
+  padding: 25px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #222;
+}
+
+.job-card:hover {
+  background-color: #F8EEE3;
+  transform: translateY(-8px);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.job-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.job-type {
+  background-color: #000;
+  color: #F8EEE3;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+.job-location {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.job-description {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.apply-btn {
+  background-color: #000;
+  color: #F8EEE3;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.apply-btn:hover {
+  background-color: #333;
+}
+
+/* Footer Note */
+.footer-note {
+  margin-top: 50px;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.highlight-email {
+  color: #F8EEE3;
+  font-weight: 500;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

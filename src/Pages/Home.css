@@ -287,6 +287,18 @@
   transform: translateY(-3px);
 }
 
+@media (max-width: 768px) {
+  .client-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .client-logo img {
+    height: 58px;
+    object-fit: contain;
+  }
+}
 
 /* OUR WORKS SECTION */
 .our-works-section {
@@ -886,7 +898,7 @@
 /* Careers  */
 /* Base styles */
 .careers-container {
-  background-color: #000;
+  background-color: #F8EEE3;
   color: #fff;
   min-height: 100vh;
   padding: 60px 20px;

@@ -29,7 +29,7 @@ function Careers() {
 <div>
         <Header/>
         <div className="careers-container ">
-      <h1 className="careers-title">Careers at Our Studio</h1>
+      <h1 style={{color:'black'}} className="careers-title">Careers at Our Studio</h1>
 
       <div className="jobs-grid">
         {jobOpenings.map((job, index) => (
@@ -47,7 +47,7 @@ function Careers() {
 
       <p className="footer-note">
         Can't find a role? Reach out to us at{' '}
-        <span className="highlight-email">careers@yourdomain.com</span>
+        <span style={{color:'black'}} className="highlight-email">info@brandconcur.in</span>
       </p>
     </div>
       <Footer/>

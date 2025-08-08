@@ -22,11 +22,13 @@ function Header() {
    <header className="flex flex-wrap items-center justify-between px-6 py-4 bg-gray-50 top-0 z-50 relative">
   {/* Logo */}
   <div className="text-5xl md:text-9xl ml-24 font-semibold poppins text-black">
-    <img
+  <a href="/">
+     <img
       src={BLogos}
       alt="Logo"
       className="h-16 md:h-32 w-auto"
     />
+  </a>
   </div>
 
   {/* Hamburger Button - visible only on mobile */}

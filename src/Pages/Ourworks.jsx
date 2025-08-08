@@ -1,27 +1,32 @@
 import React from 'react';
 import './Home.css'; // Make sure this file includes the updated styles below
 import Image from './../Assets/Explore.png';
+import Image1 from './../Assets/ourWorks1.jpg'
+import Image2 from './../Assets/ourWorks2.jpg'
+import Image3 from './../Assets/ourWorks3.jpg'
+import Image4 from './../Assets/ourWorks4.jpg'
+
 
 const worksData = [
   {
-    title: 'Brand Identity',
-    description: 'Crafted a unique brand identity for a startup company.',
-    image: Image,
+    title: 'Strategic Visual Branding',
+    description: 'Crafted a unique and consistent brand identity.',
+    image: Image1,
   },
   {
-    title: 'E-commerce Platform',
-    description: 'Developed a scalable online store with secure checkout.',
-    image: Image,
+    title: 'Smart E Commerce Solutions',
+    description: 'Built a scalable, secure online store with smooth user experience',
+    image: Image2,
   },
   {
-    title: 'Portfolio Website',
-    description: 'Designed a sleek personal portfolio for a designer.',
-    image: Image,
+    title: 'Impactful Digital Campaign',
+    description: 'Launched a targeted campaign to boost brand visibility and engagement.',
+    image: Image3,
   },
   {
     title: 'Social Media Campaign',
     description: 'Executed a successful digital marketing campaign.',
-    image: Image,
+    image: Image4,
   },
 ];
 
@@ -42,7 +47,7 @@ function Ourworks() {
           <div style={{height:'auto'}} className="work-card" key={index}>
             <img  src={work.image} alt={work.title} />
             <div className="card-content">
-              <h4 className="work-title poppinsx">{work.title}</h4>
+              <h4  className="work-title poppinsx">{work.title}</h4>
               <p className="work-description poppins">{work.description}</p>
             </div>
           </div>
